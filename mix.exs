@@ -9,7 +9,7 @@ defmodule RedixCluster.Mixfile do
      start_permanent: Mix.env == :prod,
      preferred_cli_env: [espec: :test],
      deps: deps,
-     description: description, 
+     description: description,
      package: package]
   end
 
@@ -32,19 +32,19 @@ defmodule RedixCluster.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [ {:redix, "~> 0.6.0"},
-      {:poolboy, "~> 1.5"},
+    [ {:redix, ">= 0.6.0"},
+      {:poolboy, "~> 1.5", override: true},
       {:dialyze, "~> 0.2", only: :dev},
       {:dogma, "~> 0.0", only: :dev},
       {:crc, "~> 0.5"},
       {:benchfella, github: "alco/benchfella", only: :bench},
       {:eredis_cluster, github: "adrienmo/eredis_cluster", only: :bench},
       {:espec, github: "antonmi/espec", only: :test},
-      {:ex_doc, ">= 0.0.0", only: :dev}, 
+      {:ex_doc, ">= 0.0.0", only: :dev},
     ]
   end
 
-  defp description do 
+  defp description do
     "A wrapper for redix to support cluster mode of redis"
   end
 
